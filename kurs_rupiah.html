@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Konversi Rupiah ke Dollar</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Konversi Rupiah ke Dollar</h1>
+  
+  <label for="rupiahAmount">Hasil Konversi ke Dolar:</label>
+  <input type="number" id="rupiahAmount" oninput="calculateConversion()" />
+
+  <br><br>
+
+  <label for="dollarResult">Masukkan Jumlah Rupiah:</label>
+  <input type="text" id="dollarResult" readonly />
+
+  <script>
+    function calculateConversion() {
+      const rupiahAmountInput = document.getElementById("rupiahAmount");
+      const dollarResultInput = document.getElementById("dollarResult");
+
+      const exchangeRate = 14650;
+
+      const rupiahAmount = parseFloat(rupiahAmountInput.value);
+
+      if (!isNaN(rupiahAmount)) {
+        const result = rupiahAmount / exchangeRate;
+        dollarResultInput.value = result.toLocaleString("en-US", { maximumFractionDigits: 2 });
+      } else {
+        dollarResultInput.value = "";
+      }
+    }
+  </script>
+</body>
+</html>
